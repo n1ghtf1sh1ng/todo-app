@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RefresherCustomEvent } from '@ionic/angular';
+import { ModalController, RefresherCustomEvent } from '@ionic/angular';
 
 import { DataService, Message } from '../services/data.service';
 
@@ -9,7 +9,7 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private modalCtrl: ModalController) {}
 
   refresh(ev: any) {
     setTimeout(() => {
@@ -21,4 +21,8 @@ export class HomePage {
     return this.data.getMessages();
   }
 
+  // async addTodo() {
+  //   const modal = await this.modalCtrl.create({
+  //   });
+  // }
 }
