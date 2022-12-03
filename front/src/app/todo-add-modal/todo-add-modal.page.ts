@@ -7,6 +7,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./todo-add-modal.page.scss'],
 })
 export class TodoAddModalPage implements OnInit {
+  title: string = '';
   constructor(private modalCtrl: ModalController) {}
 
   ngOnInit() {}
