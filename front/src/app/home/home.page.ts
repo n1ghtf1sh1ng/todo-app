@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController, RefresherCustomEvent } from '@ionic/angular';
 
 import { DataService, Message } from '../services/data.service';
+import { TodoAddModalPage } from '../todo-add-modal/todo-add-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -21,8 +22,10 @@ export class HomePage {
     return this.data.getMessages();
   }
 
-  // async addTodo() {
-  //   const modal = await this.modalCtrl.create({
-  //   });
-  // }
+  async addTodo() {
+    const modal = await this.modalCtrl.create({
+      component: TodoAddModalPage,
+    });
+    await modal.present();
+  }
 }

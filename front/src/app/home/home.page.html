@@ -19,7 +19,7 @@
     <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
   </ion-list>
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button tappable color="danger">
+    <ion-fab-button tappable (click)="addTodo()" color="danger">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

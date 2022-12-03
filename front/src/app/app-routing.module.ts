@@ -15,6 +15,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'todo-add-modal',
+    loadChildren: () => import('./todo-add-modal/todo-add-modal.module').then( m => m.TodoAddModalPageModule)
+  },
 ];
 
 @NgModule({
