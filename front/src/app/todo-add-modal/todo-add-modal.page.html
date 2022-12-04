@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>todo-add-modal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="stacked">Enter Todo Title</ion-label>
+    <ion-input [(ngModel)]="title" placeholder="Title"></ion-input>
+  </ion-item>
+</ion-content>
