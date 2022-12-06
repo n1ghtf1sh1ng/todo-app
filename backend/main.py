@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session, sessionmaker
 from starlette.requests import Request
 from pydantic import BaseModel
 from db import Todo, engine
+from fastapi.middleware.cors import CORSMiddleware
 
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -22,6 +23,19 @@ def get_db(request: Request):
 
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:8100",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # get all todos
 
