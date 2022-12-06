@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController, RefresherCustomEvent } from '@ionic/angular';
 
 import { DataService, Message } from '../services/data.service';
+import { TodoService } from '../services/todo.service';
 import { TodoAddModalPage } from '../todo-add-modal/todo-add-modal.page';
 
 @Component({
@@ -10,7 +11,14 @@ import { TodoAddModalPage } from '../todo-add-modal/todo-add-modal.page';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: DataService, private modalCtrl: ModalController) {}
+  constructor(private data: DataService, private todoService: TodoService, private modalCtrl: ModalController) {}
+
+  ngOnInit() {
+    console.log('ngOnInit');
+    this.todoService.fetchTodos().subscribe((todos) => {
+      console.log(todos);
+    });
+  }
 
   refresh(ev: any) {
     setTimeout(() => {
