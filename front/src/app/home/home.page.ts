@@ -14,7 +14,6 @@ export class HomePage {
   constructor(private data: DataService, private todoService: TodoService, private modalCtrl: ModalController) {}
 
   ngOnInit() {
-    console.log('ngOnInit');
     this.todoService.fetchTodos().subscribe((todos) => {
       console.log(todos);
     });
